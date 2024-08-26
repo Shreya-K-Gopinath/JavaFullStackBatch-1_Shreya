@@ -1,0 +1,63 @@
+ select EmpFName from employee where EmpFName like 'A%';
+
+no rows selected
+
+SQL> select max(Salary) from employee;
+
+MAX(SALARY)
+-----------
+       3570
+
+
+SQL> select * from department where location='edinburgh';
+
+no rows selected
+
+SQL> select * from department where location='EDINBURGH';
+
+  DEPTCODE DEPTNAME                       LOCATION
+---------- ------------------------------ ---------------------------------
+        10 FINANCE                        EDINBURGH
+
+SQL> select count(*) from employee;
+
+  COUNT(*)
+----------
+         5
+
+SQL> select e.EmpFName, e.EmpLName, d.DEPTCODE, d.DEPTNAME, d.LOCATION from
+Employee e join Department d on e.DEPTCODE = d.DEPTCODE orderby e.EmpFName A
+sc, d.LOCATION Asc;
+select e.EmpFName, e.EmpLName, d.DEPTCODE, d.DEPTNAME, d.LOCATION from Employee e join Department d on e.DEPTCODE = d.DEPTCODE orderby e.EmpFName Asc, d.LOCATION Asc
+
+                                                   *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select e.EmpFName, e.EmpLName, d.DEPTCODE, d.DEPTNAME, d.LOCATION from Employee e join Department d on e.DEPTCODE = d.DEPTCODE order by e.EmpFName
+Asc, d.LOCATION Asc;
+
+EMPFNAME        EMPLNAME          DEPTCODE DEPTNAME
+--------------- --------------- ---------- ------------------------------
+LOCATION
+---------------------------------
+KEVIN           HILL                    10 FINANCE
+EDINBURGH
+
+KIM             JARVIS                  20 SOFTWARE
+PADDINGTON
+
+SAM             MILES                   30 SALES
+MAIDSTONE
+
+
+EMPFNAME        EMPLNAME          DEPTCODE DEPTNAME
+--------------- --------------- ---------- ------------------------------
+LOCATION
+---------------------------------
+TIM             ADOLF                   30 SALES
+MAIDSTONE
+
+TONY            STARK                   20 SOFTWARE
+PADDINGTON
